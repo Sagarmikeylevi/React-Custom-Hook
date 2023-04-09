@@ -12,12 +12,12 @@ const NewTask = (props) => {
     setError(null);
     try {
       const response = await fetch(
-        'https://react-http-89e30-default-rtdb.firebaseio.com/tasks.json',
+        "https://react-custom-de158-default-rtdb.firebaseio.com/tasks.json",
         {
-          method: 'POST',
+          method: "POST",
           body: JSON.stringify({ text: taskText }),
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
         }
       );
@@ -33,6 +33,7 @@ const NewTask = (props) => {
 
       props.onAddTask(createdTask);
     } catch (err) {
+      console.log(err);
       setError(err.message || 'Something went wrong!');
     }
     setIsLoading(false);
